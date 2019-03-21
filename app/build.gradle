@@ -41,5 +41,8 @@ dependencies {
     testAnnotationProcessor 'com.google.dagger:dagger-compiler:2.21'
 
 
+    implementation 'com.uber.motif:motif:0.0.14'
+    testAnnotationProcessor 'com.uber.motif:motif-compiler:0.0.14'
+
 
 }
