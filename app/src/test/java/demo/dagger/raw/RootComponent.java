@@ -4,10 +4,10 @@ package demo.dagger.raw;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.Provides;
-import demo.common.RootController;
 import demo.common.Root;
-import demo.common.Scope;
+import demo.common.RootController;
 import demo.common.RootView;
+import demo.common.Scope;
 import demo.common.ViewGroup;
 
 @Scope
@@ -36,6 +36,12 @@ interface RootComponent {
         @Provides
         static RootView view(@Root ViewGroup parent) {
             return RootView.create(parent);
+        }
+
+        @Scope
+        @Provides
+        static RootController rootController(RootView rootView) {
+            return new RootController(rootView);
         }
     }
 }
