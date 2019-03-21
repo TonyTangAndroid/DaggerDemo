@@ -1,11 +1,14 @@
 package demo.tang.tony.motif;
 
 
+import motif.Expose;
+
 @motif.Scope
 interface MainScope {
 
-    Controller controller();
+    ChildScope child();
 
+    Controller controller();
 
     @motif.Objects
     class Objects {
@@ -14,6 +17,7 @@ interface MainScope {
             return new View();
         }
 
+        @Expose
         Database database() {
             return new Database();
         }
