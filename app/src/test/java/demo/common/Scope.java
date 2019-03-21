@@ -1,5 +1,5 @@
 package demo.common;
 
 @javax.inject.Scope
-public @interface RootScope {
+public @interface Scope {
 }

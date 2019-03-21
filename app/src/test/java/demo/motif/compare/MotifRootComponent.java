@@ -5,11 +5,11 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.Provides;
 import demo.common.RootController;
-import demo.common.RootScope;
+import demo.common.Scope;
 import demo.common.RootView;
 import demo.common.ViewGroup;
 
-@RootScope
+@Scope
 @Component(modules = MotifRootComponent.Module.class)
 interface MotifRootComponent {
 
@@ -32,7 +32,7 @@ interface MotifRootComponent {
     @dagger.Module
     abstract class Module {
 
-        @RootScope
+        @Scope
         @Provides
         static RootView view(ViewGroup parent) {
             return RootView.create(parent);

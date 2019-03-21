@@ -2,7 +2,7 @@ package demo.common;
 
 import javax.inject.Inject;
 
-@RootScope
+@Scope
 public class RootController {
 
     private final RootView rootView;
