@@ -52,19 +52,26 @@ public class GrantchildTest {
 
         GrandchildScope grandchildScope1 = child.grandchildScope();
         GrandchildController grandchildController1 = grandchildScope1.controller();
-        ChildView view1 = grandchildController1.getView();
+        ChildView childView1 = grandchildController1.getChildView();
         GrandchildView grandchildView1 = grandchildController1.getGrandchildView();
+        Database database1 = grandchildController1.getDatabase();
+        View view1 = grandchildController1.getView();
 
 
         GrandchildScope grandchildScope2 = child.grandchildScope();
         GrandchildController grandchildController2 = grandchildScope2.controller();
-        ChildView view2 = grandchildController2.getView();
+        ChildView childView2 = grandchildController2.getChildView();
         GrandchildView grandchildView2 = grandchildController2.getGrandchildView();
+        Database database2 = grandchildController2.getDatabase();
+        View view2 = grandchildController2.getView();
 
 
         Truth.assertThat(grandchildScope1).isNotEqualTo(grandchildScope2);
         Truth.assertThat(grandchildController1).isNotEqualTo(grandchildController2);
-        Truth.assertThat(view1).isEqualTo(view2);
         Truth.assertThat(grandchildView1).isNotEqualTo(grandchildView2);
+
+        Truth.assertThat(view1).isEqualTo(view2);
+        Truth.assertThat(database1).isEqualTo(database2);
+        Truth.assertThat(childView1).isEqualTo(childView2);
     }
 }

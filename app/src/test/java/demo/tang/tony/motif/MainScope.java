@@ -13,6 +13,7 @@ interface MainScope {
 
     @motif.Objects
     abstract class Objects {
+        @Expose
         abstract View view();
 
         @Expose
