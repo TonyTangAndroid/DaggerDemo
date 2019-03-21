@@ -11,6 +11,7 @@ public class ControllerTest {
 
     @Test
     public void rootControllerTest() {
+
         RootComponent rootComponent = DaggerRootComponent.builder().viewGroup(new ViewGroup()).build();
 
         RootController controller1 = rootComponent.rootController();

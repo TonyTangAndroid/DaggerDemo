@@ -12,12 +12,7 @@ public class ControllerTest {
     @Test
     public void rootControllerTest() {
 
-        RootComponent rootComponent = new RootComponentImpl(new RootComponentImpl.Dependencies() {
-            @Override
-            public ViewGroup viewGroup() {
-                return new ViewGroup();
-            }
-        });
+        RootComponent rootComponent = new RootComponentImpl(ViewGroup::new);
 
         RootController controller1 = rootComponent.rootController();
         RootController controller2 = rootComponent.rootController();
