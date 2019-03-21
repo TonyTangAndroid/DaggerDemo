@@ -40,6 +40,7 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.21'
     testAnnotationProcessor 'com.google.dagger:dagger-compiler:2.21'
 
+    testCompile 'com.google.truth:truth:0.43'
 
     implementation 'com.uber.motif:motif:0.0.14'
     testAnnotationProcessor 'com.uber.motif:motif-compiler:0.0.14'
