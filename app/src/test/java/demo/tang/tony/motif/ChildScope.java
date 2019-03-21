@@ -7,15 +7,11 @@ interface ChildScope {
     ChildController controller();
 
     @motif.Objects
-    class Objects {
+    abstract class Objects {
 
         // No Database factory method. Child Controller receives the Database defined by MainScope.
-        ChildView view() {
-            return new ChildView();
-        }
+        abstract ChildView view();
 
-        ChildController controller(Database database, ChildView view) {
-            return new ChildController(database, view);
-        }
+        abstract ChildController controller();
     }
 }
