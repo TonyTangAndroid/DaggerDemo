@@ -11,20 +11,13 @@ interface MainScope {
     Controller controller();
 
     @motif.Objects
-    class Objects {
-
-        View view() {
-            return new View();
-        }
+    abstract class Objects {
+        abstract View view();
 
         @Expose
-        Database database() {
-            return new Database();
-        }
+        abstract Database database();
 
-        Controller controller(View view, Database database) {
-            return new Controller(view, database);
-        }
+        abstract Controller controller();
     }
 
 }
