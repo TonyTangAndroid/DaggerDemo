@@ -8,4 +8,6 @@ public interface NetworkComponent {
 
     //output
     OkHttpClient okHttpClient();
+
+    NetworkRequest networkRequest();
 }
