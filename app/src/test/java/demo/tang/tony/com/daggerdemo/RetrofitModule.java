@@ -2,11 +2,12 @@ package demo.tang.tony.com.daggerdemo;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-@Module
-public class RetrofitModule {
+@Module(includes = HiddenOkHttpClientModule.class)
+class RetrofitModule {
 
 
     @Provides
@@ -15,8 +16,9 @@ public class RetrofitModule {
     }
 
     @Provides
-    Retrofit provideRetrofit(String serverUrl, GsonConverterFactory factory) {
+    Retrofit provideRetrofit(OkHttpClient okHttpClient, String serverUrl, GsonConverterFactory factory) {
         return new Retrofit.Builder()
+                .client(okHttpClient)
                 .addConverterFactory(factory)
                 .baseUrl(serverUrl)
                 .build();
