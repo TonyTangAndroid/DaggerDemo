@@ -2,10 +2,12 @@ package demo.dagger.raw;
 
 import dagger.Provides;
 import dagger.Subcomponent;
+import demo.common.ChildView;
+import demo.common.RootView;
 
 @LoggedInComponent.ChildScope
 @Subcomponent(modules = LoggedInComponent.Module.class)
-public interface LoggedInComponent {
+interface LoggedInComponent {
 
     ChildView childView();
 

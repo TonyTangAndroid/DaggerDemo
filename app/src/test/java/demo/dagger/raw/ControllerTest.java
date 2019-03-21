@@ -4,6 +4,9 @@ import com.google.common.truth.Truth;
 
 import org.junit.Test;
 
+import demo.common.RootController;
+import demo.common.ViewGroup;
+
 public class ControllerTest {
 
     @Test

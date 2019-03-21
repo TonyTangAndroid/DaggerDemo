@@ -1,15 +1,18 @@
 package demo.dagger.raw;
 
 
-import javax.inject.Qualifier;
-
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.Provides;
+import demo.common.RootController;
+import demo.common.RootQualifier;
+import demo.common.RootScope;
+import demo.common.RootView;
+import demo.common.ViewGroup;
 
-@RootComponent.Scope
+@RootScope
 @Component(modules = RootComponent.Module.class)
-public interface RootComponent {
+interface RootComponent {
 
     RootController rootController();
 
@@ -21,25 +24,17 @@ public interface RootComponent {
     interface Builder {
 
         @BindsInstance
-        Builder viewGroup(@Root ViewGroup parent);
+        Builder viewGroup(@RootQualifier ViewGroup parent);
 
         RootComponent build();
-    }
-
-    @javax.inject.Scope
-    @interface Scope {
-    }
-
-    @Qualifier
-    @interface Root {
     }
 
     @dagger.Module
     abstract class Module {
 
-        @Scope
+        @RootScope
         @Provides
-        static RootView view(@Root ViewGroup parent) {
+        static RootView view(@RootQualifier ViewGroup parent) {
             return RootView.create(parent);
         }
     }

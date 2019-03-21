@@ -1,9 +1,9 @@
-package demo.dagger.raw;
+package demo.common;
 
 import javax.inject.Inject;
 
-@RootComponent.Scope
-class RootController {
+@RootScope
+public class RootController {
 
     private final RootView rootView;
 

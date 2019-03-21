@@ -1,6 +1,6 @@
-package demo.dagger.raw;
+package demo.common;
 
-class ChildView {
+public class ChildView {
     private final RootView rootView;
 
     public ChildView(RootView rootView) {

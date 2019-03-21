@@ -1,6 +1,6 @@
-package demo.dagger.raw;
+package demo.common;
 
-class ViewGroup {
+public class ViewGroup {
     public ViewGroup() {
         System.out.println("Root View Group");
     }

@@ -1,7 +1,7 @@
-package demo.dagger.raw;
+package demo.common;
 
 
-class RootView {
+public class RootView {
     private final ViewGroup parent;
 
     public RootView(ViewGroup parent) {
