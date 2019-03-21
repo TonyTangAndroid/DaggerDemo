@@ -4,8 +4,8 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 
-@Module
-class NetworkModule {
+@Module(includes = HiddenOkHttpClientModule.class)
+class PublicNetworkModule {
 
     @Provides
     NetworkRequest networkRequest(OkHttpClient okHttpClient) {
