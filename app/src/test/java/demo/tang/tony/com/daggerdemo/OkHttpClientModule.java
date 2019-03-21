@@ -12,8 +12,9 @@ class OkHttpClientModule {
         return new OkHttpClient();
     }
 
-//    @Provides
-//    OkHttpClient create2() {
-//        return new OkHttpClient();
-//    }
+    @Provides
+    NetworkRequest networkRequest(OkHttpClient okHttpClient) {
+        return new NetworkRequest(okHttpClient);
+    }
+
 }
