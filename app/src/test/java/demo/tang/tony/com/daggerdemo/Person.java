@@ -1,21 +1,31 @@
 package demo.tang.tony.com.daggerdemo;
 
-import java.util.Objects;
+import android.support.annotation.Nullable;
 
-public class Person {
+import com.google.auto.value.AutoValue;
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.SerializedName;
 
-    public String name;
+@AutoValue
+public abstract class Person {
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Person)) return false;
-        Person person = (Person) o;
-        return Objects.equals(name, person.name);
+    public static TypeAdapter<Person> typeAdapter(Gson gson) {
+        return new AutoValue_Person.GsonTypeAdapter(gson);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
+    public static Builder builder() {
+        return new AutoValue_Person.Builder();
+    }
+
+    @Nullable
+    @SerializedName("name")
+    public abstract String name();
+
+    @AutoValue.Builder
+    public abstract static class Builder {
+        public abstract Builder name(String name);
+
+        public abstract Person build();
     }
 }

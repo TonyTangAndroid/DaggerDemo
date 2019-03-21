@@ -1,5 +1,8 @@
 package demo.tang.tony.com.daggerdemo;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
@@ -25,7 +28,14 @@ class RetrofitModule {
     }
 
     @Provides
-    GsonConverterFactory factory() {
-        return GsonConverterFactory.create();
+    Gson gson() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Person.class, Person.typeAdapter(new Gson()));
+        return gsonBuilder.create();
+    }
+
+    @Provides
+    GsonConverterFactory factory(Gson gson) {
+        return GsonConverterFactory.create(gson);
     }
 }

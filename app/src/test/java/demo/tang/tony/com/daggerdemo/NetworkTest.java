@@ -37,8 +37,6 @@ public class NetworkTest {
 
 
     private Person expected() {
-        Person person = new Person();
-        person.name = "tony";
-        return person;
+        return Person.builder().name("tony").build();
     }
 }
