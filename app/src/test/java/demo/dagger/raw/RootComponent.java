@@ -16,8 +16,6 @@ interface RootComponent {
 
     RootController rootController();
 
-    BugController bugController();
-
     LoggedInComponent.Builder loggedIn();
 
     @dagger.Component.Builder
