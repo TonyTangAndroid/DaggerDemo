@@ -8,8 +8,8 @@ import okhttp3.OkHttpClient;
 class PublicNetworkModule {
 
     @Provides
-    NetworkRequest networkRequest(OkHttpClient okHttpClient) {
-        return new NetworkRequest(okHttpClient);
+    NetworkChannel networkRequest(OkHttpClient okHttpClient) {
+        return new NetworkChannel(okHttpClient);
     }
 
 }

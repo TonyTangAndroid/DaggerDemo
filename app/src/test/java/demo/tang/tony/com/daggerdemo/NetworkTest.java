@@ -18,7 +18,7 @@ public class NetworkTest {
     Request request;
 
     @Inject
-    NetworkRequest networkRequest;
+    NetworkChannel networkChannel;
 
     @Before
     public void setup() {
@@ -29,7 +29,7 @@ public class NetworkTest {
     public void addition_isCorrect() throws IOException {
         for (int i = 0; i < 1; i++) {
             System.out.println("count:" + i);
-            assertEquals(expected(), networkRequest.execute(request));
+            assertEquals(expected(), networkChannel.execute(request));
         }
     }
 

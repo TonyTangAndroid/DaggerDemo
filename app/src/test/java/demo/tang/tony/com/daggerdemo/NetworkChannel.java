@@ -7,11 +7,11 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class NetworkRequest {
+public class NetworkChannel {
 
     private OkHttpClient client;
 
-    public NetworkRequest(OkHttpClient client) {
+    public NetworkChannel(OkHttpClient client) {
         this.client = client;
     }
 
