@@ -35,7 +35,7 @@ class RetrofitModule {
     @Provides
     Gson gson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Student.class, Student.typeAdapter(new Gson()));
+        gsonBuilder.registerTypeAdapterFactory(TestTonyMyAdapterFactory.create());
         return gsonBuilder.create();
     }
 

@@ -2,20 +2,13 @@ package demo.tang.tony.com.daggerdemo;
 
 import org.junit.Test;
 
-import java.io.IOException;
-
 
 public class DaggerTest {
 
 
-    @Test
-    public void addition_isCorrect() throws IOException {
-
-        NetworkComponent networkComponent2 = DaggerNetworkComponent.builder().build();
+    @Test(expected = IllegalStateException.class)
+    public void addition_isCorrect() {
+        DaggerNetworkComponent.builder().build();
     }
 
-
-    private String expected() {
-        return "{\"name\":\"tony\"}";
-    }
 }
