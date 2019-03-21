@@ -1,7 +1,5 @@
 package demo.tang.tony.com.daggerdemo;
 
-import android.support.annotation.Nullable;
-
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
@@ -18,13 +16,12 @@ public abstract class Student {
         return new AutoValue_Student.Builder();
     }
 
-    @Nullable
     @SerializedName("name")
-    public abstract String name();
+    public abstract NestName name();
 
     @AutoValue.Builder
     public abstract static class Builder {
-        public abstract Builder name(String name);
+        public abstract Builder name(NestName name);
 
         public abstract Student build();
     }

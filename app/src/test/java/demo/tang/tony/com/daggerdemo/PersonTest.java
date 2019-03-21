@@ -30,13 +30,14 @@ public class PersonTest {
 
     private Student actual2() throws IOException {
 
-        Call<Student> personCall = restApi.get("5c9302e0320000e51c6bd167");
+        Call<Student> personCall = restApi.get("5c9319653200009d626bd1c7");
         Response<Student> response = personCall.execute();
         return response.body();
     }
 
 
     private Student expected() {
-        return Student.builder().name("tony").build();
+        NestName nested = NestName.builder().name("tony").build();
+        return Student.builder().name(nested).build();
     }
 }
