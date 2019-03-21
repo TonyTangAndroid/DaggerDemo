@@ -17,8 +17,7 @@ public class NetworkTest {
 
     @Before
     public void setup() {
-        client = new OkHttpClient();
-
+        client = DaggerNetworkComponent.create().okHttpClient();
     }
 
     @Test
