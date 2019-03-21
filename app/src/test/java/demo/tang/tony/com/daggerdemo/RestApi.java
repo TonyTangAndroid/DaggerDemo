@@ -6,5 +6,5 @@ import retrofit2.http.Path;
 
 public interface RestApi {
     @GET("{request_id}")
-    Call<Person> get(@Path("request_id") String id);
+    Call<Student> get(@Path("request_id") String id);
 }

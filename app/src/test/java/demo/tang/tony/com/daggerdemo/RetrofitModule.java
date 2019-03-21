@@ -19,6 +19,11 @@ class RetrofitModule {
     }
 
     @Provides
+    TeacherApi provideTeacherApi(Retrofit retrofit) {
+        return retrofit.create(TeacherApi.class);
+    }
+
+    @Provides
     Retrofit provideRetrofit(OkHttpClient okHttpClient, String serverUrl, GsonConverterFactory factory) {
         return new Retrofit.Builder()
                 .client(okHttpClient)
@@ -30,7 +35,7 @@ class RetrofitModule {
     @Provides
     Gson gson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Person.class, Person.typeAdapter(new Gson()));
+        gsonBuilder.registerTypeAdapter(Student.class, Student.typeAdapter(new Gson()));
         return gsonBuilder.create();
     }
 

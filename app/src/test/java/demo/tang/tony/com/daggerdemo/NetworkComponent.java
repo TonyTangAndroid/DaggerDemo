@@ -8,6 +8,8 @@ public interface NetworkComponent {
 
     RestApi restApi();
 
+    TeacherApi teacherApi();
+
     @Component.Builder
     interface Builder {
 

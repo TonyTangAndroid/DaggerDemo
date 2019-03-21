@@ -14,7 +14,7 @@ public class NetworkChannel {
         this.client = client;
     }
 
-    public Person execute(Request request) throws IOException {
+    public Student execute(Request request) throws IOException {
 //        try (Response response = client.newCall(request).execute()) {
 //            assert response.body() != null;
 //            return response.body().string();

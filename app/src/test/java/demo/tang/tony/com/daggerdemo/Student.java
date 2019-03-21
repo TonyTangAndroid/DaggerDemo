@@ -8,14 +8,14 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.SerializedName;
 
 @AutoValue
-public abstract class Person {
+public abstract class Student {
 
-    public static TypeAdapter<Person> typeAdapter(Gson gson) {
-        return new AutoValue_Person.GsonTypeAdapter(gson);
+    public static TypeAdapter<Student> typeAdapter(Gson gson) {
+        return new AutoValue_Student.GsonTypeAdapter(gson);
     }
 
     public static Builder builder() {
-        return new AutoValue_Person.Builder();
+        return new AutoValue_Student.Builder();
     }
 
     @Nullable
@@ -26,6 +26,6 @@ public abstract class Person {
     public abstract static class Builder {
         public abstract Builder name(String name);
 
-        public abstract Person build();
+        public abstract Student build();
     }
 }

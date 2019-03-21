@@ -11,16 +11,16 @@ import retrofit2.Response;
 import static org.junit.Assert.assertEquals;
 
 
-public class PersonTest {
+public class TeacherTest {
 
 
     public static final String SERVER_URL = "http://www.mocky.io/v2/";
 
-    private RestApi restApi;
+    private TeacherApi teacherApi;
 
     @Before
     public void setup() {
-        restApi = DaggerNetworkComponent.builder().url(SERVER_URL).build().restApi();
+        teacherApi = DaggerNetworkComponent.builder().url(SERVER_URL).build().teacherApi();
     }
 
     @Test
@@ -28,15 +28,15 @@ public class PersonTest {
         assertEquals(expected(), actual2());
     }
 
-    private Student actual2() throws IOException {
+    private Teacher actual2() throws IOException {
 
-        Call<Student> personCall = restApi.get("5c9302e0320000e51c6bd167");
-        Response<Student> response = personCall.execute();
+        Call<Teacher> personCall = teacherApi.get("5c9302e0320000e51c6bd167");
+        Response<Teacher> response = personCall.execute();
         return response.body();
     }
 
 
-    private Student expected() {
-        return Student.builder().name("tony").build();
+    private Teacher expected() {
+        return Teacher.builder().name("tony").build();
     }
 }
