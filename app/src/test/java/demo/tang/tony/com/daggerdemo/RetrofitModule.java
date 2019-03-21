@@ -3,6 +3,8 @@ package demo.tang.tony.com.daggerdemo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
@@ -32,9 +34,18 @@ class RetrofitModule {
                 .build();
     }
 
+    @Named("basic")
     @Provides
-    Gson gson() {
+    Gson basic() {
         GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapterFactory(TestTonyMyAdapterFactory.create());
+        return gsonBuilder.create();
+    }
+
+    @Provides
+    Gson gson(@Named("basic") Gson gson) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(NestName.class, new CustomJsonDeserializer(gson));
         gsonBuilder.registerTypeAdapterFactory(TestTonyMyAdapterFactory.create());
         return gsonBuilder.create();
     }
