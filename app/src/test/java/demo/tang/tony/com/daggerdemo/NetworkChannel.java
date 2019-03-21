@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
 
 
 public class NetworkChannel {
@@ -15,10 +14,12 @@ public class NetworkChannel {
         this.client = client;
     }
 
-    public String execute(Request request) throws IOException {
-        try (Response response = client.newCall(request).execute()) {
-            assert response.body() != null;
-            return response.body().string();
-        }
+    public Person execute(Request request) throws IOException {
+//        try (Response response = client.newCall(request).execute()) {
+//            assert response.body() != null;
+//            return response.body().string();
+//        }
+
+        throw new RuntimeException();
     }
 }
