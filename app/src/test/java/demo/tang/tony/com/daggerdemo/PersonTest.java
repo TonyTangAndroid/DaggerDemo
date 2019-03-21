@@ -11,7 +11,7 @@ import retrofit2.Response;
 import static org.junit.Assert.assertEquals;
 
 
-public class NetworkTest {
+public class PersonTest {
 
 
     public static final String SERVER_URL = "http://www.mocky.io/v2/";
