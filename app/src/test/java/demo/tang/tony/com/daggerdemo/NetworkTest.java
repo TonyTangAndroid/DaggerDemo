@@ -1,5 +1,6 @@
 package demo.tang.tony.com.daggerdemo;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -12,17 +13,28 @@ import static org.junit.Assert.assertEquals;
 
 
 public class NetworkTest {
-    @Test
-    public void addition_isCorrect() throws IOException {
-        assertEquals(expected(), actual());
-    }
 
-    private String actual() throws IOException {
+    private OkHttpClient client;
+    private Request request;
 
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
+    @Before
+    public void setup() {
+        client = new OkHttpClient();
+        request = new Request.Builder()
                 .url("http://www.mocky.io/v2/5c9302e0320000e51c6bd167")
                 .build();
+    }
+
+    @Test
+    public void addition_isCorrect() throws IOException {
+        for (int i = 0; i < 10; i++) {
+            System.out.println("count:" + i);
+            assertEquals(expected(), actual(client));
+        }
+    }
+
+    private String actual(OkHttpClient client) throws IOException {
+
 
         try (Response response = client.newCall(request).execute()) {
             return response.body().string();
