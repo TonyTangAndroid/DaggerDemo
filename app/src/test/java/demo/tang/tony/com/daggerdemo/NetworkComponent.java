@@ -5,5 +5,7 @@ import dagger.Component;
 @Component(modules = {PublicNetworkModule.class})
 public interface NetworkComponent {
 
-    NetworkRequest networkRequest();
+    void inject(NetworkTest test);
+
+//    NetworkRequest networkRequest();
 }

@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+
 import okhttp3.Request;
 
 import static org.junit.Assert.assertEquals;
@@ -12,11 +14,12 @@ import static org.junit.Assert.assertEquals;
 
 public class NetworkTest {
 
-    private NetworkRequest networkRequest;
+    @Inject
+    NetworkRequest networkRequest;
 
     @Before
     public void setup() {
-        networkRequest = DaggerNetworkComponent.create().networkRequest();
+        DaggerNetworkComponent.create().inject(this);
     }
 
     @Test
