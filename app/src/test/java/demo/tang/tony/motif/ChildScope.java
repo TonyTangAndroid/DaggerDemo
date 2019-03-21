@@ -4,12 +4,14 @@ package demo.tang.tony.motif;
 @motif.Scope
 interface ChildScope {
 
+    GrandchildScope grandchildScope();
+
     ChildController controller();
 
     @motif.Objects
     abstract class Objects {
 
-        // No Database factory method. Child Controller receives the Database defined by MainScope.
+        @motif.Expose
         abstract ChildView view();
 
         abstract ChildController controller();
