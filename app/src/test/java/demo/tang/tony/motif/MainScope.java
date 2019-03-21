@@ -12,14 +12,9 @@ interface MainScope {
 
 
     @motif.Objects
-    abstract class Objects {
-        @Expose
-        abstract View view();
-
+    abstract class Objects implements ControllerObjects<Controller, View> {
         @Expose
         abstract Database database();
-
-        abstract Controller controller();
     }
 
 }
