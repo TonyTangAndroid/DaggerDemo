@@ -11,10 +11,7 @@ public class DaggerTest {
     @Test
     public void addition_isCorrect() throws IOException {
 
-        NetworkComponent networkComponent1 = DaggerNetworkComponent.create();
         NetworkComponent networkComponent2 = DaggerNetworkComponent.builder().build();
-
-
     }
 
 

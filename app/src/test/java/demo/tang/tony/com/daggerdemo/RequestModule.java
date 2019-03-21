@@ -8,10 +8,9 @@ import okhttp3.Request;
 class RequestModule {
 
     @Provides
-    public Request request() {
+    public Request request(String url) {
         return new Request.Builder()
-                .url("http://www.mocky.io/v2/5c9302e0320000e51c6bd167")
+                .url(url)
                 .build();
     }
-
 }

@@ -14,6 +14,9 @@ import static org.junit.Assert.assertEquals;
 
 public class NetworkTest {
 
+    public static final String URL = "http://www.mocky.io/v2/5c9302e0320000e51c6bd167";
+
+
     @Inject
     Request request;
 
@@ -22,7 +25,7 @@ public class NetworkTest {
 
     @Before
     public void setup() {
-        DaggerNetworkComponent.create().inject(this);
+        DaggerNetworkComponent.builder().url(URL).build().inject(this);
     }
 
     @Test
