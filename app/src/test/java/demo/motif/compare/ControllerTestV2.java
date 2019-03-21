@@ -13,6 +13,7 @@ public class ControllerTestV2 {
     public void rootControllerTest() {
 
         RootComponent rootComponent = new RootComponentFactoryImpl().create(new ViewGroup());
+
         RootController controller1 = rootComponent.rootController();
         RootController controller2 = rootComponent.rootController();
         Truth.assertThat(controller1).isEqualTo(controller2);
