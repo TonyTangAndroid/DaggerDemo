@@ -5,12 +5,11 @@ import dagger.Provides;
 import okhttp3.OkHttpClient;
 
 @Module
-class OkHttpClientModule {
+class NetworkModule {
 
     @Provides
-    OkHttpClient okHttpClient() {
-        return new OkHttpClient();
+    NetworkRequest networkRequest(OkHttpClient okHttpClient) {
+        return new NetworkRequest(okHttpClient);
     }
-
 
 }
