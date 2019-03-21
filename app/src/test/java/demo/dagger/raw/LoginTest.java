@@ -13,6 +13,7 @@ public class LoginTest {
     public void loggedInComponentTest() {
         RootComponent rootComponent = DaggerRootComponent.builder().viewGroup(new ViewGroup()).build();
         LoggedInComponent.Builder builder = rootComponent.loggedIn();
+
         LoggedInComponent loggedInComponent1 = builder.build();
         LoggedInComponent loggedInComponent2 = builder.build();
         Truth.assertThat(loggedInComponent1).isNotEqualTo(loggedInComponent2);
@@ -22,6 +23,7 @@ public class LoginTest {
     public void loggedInComponentChildView() {
         RootComponent rootComponent = DaggerRootComponent.builder().viewGroup(new ViewGroup()).build();
         LoggedInComponent.Builder builder = rootComponent.loggedIn();
+
         LoggedInComponent loggedInComponent1 = builder.build();
         LoggedInComponent loggedInComponent2 = builder.build();
         Truth.assertThat(loggedInComponent1.childView()).isNotEqualTo(loggedInComponent2.childView());
@@ -31,6 +33,7 @@ public class LoginTest {
     public void loggedInComponentRootViewEqual() {
         RootComponent rootComponent = DaggerRootComponent.builder().viewGroup(new ViewGroup()).build();
         LoggedInComponent.Builder builder = rootComponent.loggedIn();
+
         LoggedInComponent loggedInComponent1 = builder.build();
         LoggedInComponent loggedInComponent2 = builder.build();
 
