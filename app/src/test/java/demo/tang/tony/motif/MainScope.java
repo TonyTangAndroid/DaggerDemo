@@ -10,6 +10,7 @@ interface MainScope {
 
     Controller controller();
 
+
     @motif.Objects
     abstract class Objects {
         abstract View view();

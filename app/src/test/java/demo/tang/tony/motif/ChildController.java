@@ -10,4 +10,12 @@ class ChildController {
         this.database = database;
         this.view = view;
     }
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public ChildView getView() {
+        return view;
+    }
 }

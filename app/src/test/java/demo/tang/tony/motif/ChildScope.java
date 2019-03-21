@@ -10,7 +10,6 @@ interface ChildScope {
     class Objects {
 
         // No Database factory method. Child Controller receives the Database defined by MainScope.
-
         ChildView view() {
             return new ChildView();
         }

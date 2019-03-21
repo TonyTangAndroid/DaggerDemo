@@ -51,5 +51,64 @@ public class MotifTest {
         Truth.assertThat(childScope1).isNotEqualTo(childScope2);
     }
 
+    @Test
+    public void childControllerNotEquals() {
+
+        MainScope mainScope = new MainScopeImpl();
+        ChildController controller1 = mainScope.child().controller();
+        ChildController controller2 = mainScope.child().controller();
+        Truth.assertThat(controller1).isNotEqualTo(controller2);
+    }
+
+    @Test
+    public void childControllerDatabaseEquals() {
+
+        MainScope mainScope = new MainScopeImpl();
+        Database database1 = mainScope.child().controller().getDatabase();
+        Database database2 = mainScope.child().controller().getDatabase();
+        Truth.assertThat(database1).isEqualTo(database2);
+    }
+
+
+    @Test
+    public void childControllerViewNotEquals() {
+
+        MainScope mainScope = new MainScopeImpl();
+        ChildView childView1 = mainScope.child().controller().getView();
+        ChildView childView2 = mainScope.child().controller().getView();
+        Truth.assertThat(childView1).isNotEqualTo(childView2);
+    }
+
+
+    @Test
+    public void childController() {
+
+        MainScope mainScope = new MainScopeImpl();
+        ChildScope childScope = mainScope.child();
+        ChildController controller = childScope.controller();
+        Truth.assertThat(controller).isNotNull();
+    }
+
+    @Test
+    public void childControllerChildView() {
+
+        MainScope mainScope = new MainScopeImpl();
+        ChildScope childScope = mainScope.child();
+        ChildController controller = childScope.controller();
+        ChildView childView = controller.getView();
+        Truth.assertThat(childView).isNotNull();
+    }
+
+
+    @Test
+    public void childControllerDatabase() {
+
+        MainScope mainScope = new MainScopeImpl();
+        ChildScope childScope = mainScope.child();
+        ChildController controller = childScope.controller();
+        Database database = controller.getDatabase();
+        Truth.assertThat(database).isNotNull();
+    }
+
 
 }
