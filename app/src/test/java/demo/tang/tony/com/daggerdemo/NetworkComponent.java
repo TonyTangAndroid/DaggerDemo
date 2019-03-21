@@ -3,10 +3,10 @@ package demo.tang.tony.com.daggerdemo;
 import dagger.BindsInstance;
 import dagger.Component;
 
-@Component(modules = {PublicNetworkModule.class, RequestModule.class})
+@Component(modules = {PublicNetworkModule.class, RetrofitModule.class, RequestModule.class})
 public interface NetworkComponent {
 
-    void inject(NetworkTest test);
+    RestApi restApi();
 
 
     @Component.Builder
