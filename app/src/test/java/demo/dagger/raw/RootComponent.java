@@ -5,7 +5,7 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.Provides;
 import demo.common.RootController;
-import demo.common.RootQualifier;
+import demo.common.Root;
 import demo.common.Scope;
 import demo.common.RootView;
 import demo.common.ViewGroup;
@@ -24,7 +24,7 @@ interface RootComponent {
     interface Builder {
 
         @BindsInstance
-        Builder viewGroup(@RootQualifier ViewGroup parent);
+        Builder viewGroup(@Root ViewGroup parent);
 
         RootComponent build();
     }
@@ -34,7 +34,7 @@ interface RootComponent {
 
         @Scope
         @Provides
-        static RootView view(@RootQualifier ViewGroup parent) {
+        static RootView view(@Root ViewGroup parent) {
             return RootView.create(parent);
         }
     }
