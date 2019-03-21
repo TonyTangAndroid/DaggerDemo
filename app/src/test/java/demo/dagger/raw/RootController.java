@@ -1,13 +1,14 @@
-package demo.tang.tony.dagger;
+package demo.dagger.raw;
 
 import javax.inject.Inject;
 
-class BugController {
+@RootComponent.Scope
+class RootController {
 
     private final RootView rootView;
 
     @Inject
-    public BugController(RootView rootView) {
+    public RootController(RootView rootView) {
         this.rootView = rootView;
     }
 }

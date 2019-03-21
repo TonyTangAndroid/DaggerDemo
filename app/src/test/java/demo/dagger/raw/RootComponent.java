@@ -1,4 +1,4 @@
-package demo.tang.tony.dagger;
+package demo.dagger.raw;
 
 
 import javax.inject.Qualifier;

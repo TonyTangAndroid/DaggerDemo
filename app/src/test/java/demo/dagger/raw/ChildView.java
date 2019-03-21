@@ -1,4 +1,4 @@
-package demo.tang.tony.dagger;
+package demo.dagger.raw;
 
 class ChildView {
     private final RootView rootView;
