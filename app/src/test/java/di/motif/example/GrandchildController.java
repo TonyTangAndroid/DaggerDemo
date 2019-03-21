@@ -1,4 +1,4 @@
-package demo.tang.tony.motif;
+package di.motif.example;
 
 class GrandchildController {
     private final View view;

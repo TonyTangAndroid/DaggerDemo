@@ -1,4 +1,4 @@
-package demo.tang.tony.motif;
+package di.motif.example;
 
 import com.google.common.truth.Truth;
 
