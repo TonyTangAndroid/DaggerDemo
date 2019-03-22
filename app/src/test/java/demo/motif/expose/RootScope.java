@@ -6,7 +6,7 @@ import motif.Scope;
 @Scope
 public interface RootScope {
 
-    ChildScope createChild(String childId);
+    ChildScope createChild(@Expose String childId);
 
     Request request();
 
