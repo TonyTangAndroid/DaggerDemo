@@ -8,8 +8,6 @@ public interface ChildScope {
 
     Controller controller();
 
-    GrandchildScope create();
-
     @motif.Objects
     abstract class Objects {
 
