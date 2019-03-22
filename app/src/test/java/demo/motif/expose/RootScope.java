@@ -1,17 +1,22 @@
 package demo.motif.expose;
 
+import motif.Expose;
 import motif.Scope;
 
 @Scope
 public interface RootScope {
 
-//        ChildLeftScope left();
+    ChildScope createChild(String childId);
 
     Request request();
 
+    AuthToken authToken();
+
     @motif.Objects
     abstract class Objects {
-        abstract Request value();
+
+        @Expose
+        abstract Request request();
 
         abstract AuthToken authToken();
 

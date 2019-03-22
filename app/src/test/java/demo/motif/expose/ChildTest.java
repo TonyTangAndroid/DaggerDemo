@@ -7,14 +7,22 @@ import org.junit.Test;
 public class ChildTest {
 
     @Test
-    public void child_test() {
+    public void create_child() {
 
-        ChildScopeImpl.Dependencies dependencies = () -> new Controller(new Request(new AuthToken("123")));
-        ChildScopeImpl childScope = new ChildScopeImpl(dependencies);
-        Truth.assertThat(childScope.controller().request()).isEqualTo("123:success");
+        RootScope rootScope = new RootScopeFactoryImpl().create("abc");
+        ChildScope child = rootScope.createChild("1");
+        Controller controller = child.controller();
+        String actual = controller.request();
+        Truth.assertThat(actual).isEqualTo("1:abc:success");
 
     }
 
 
+  @Test
+    public void auth_token() {
+
+        RootScope rootScope = new RootScopeFactoryImpl().create("abc");
+        Truth.assertThat(rootScope.authToken().getAccessToken()).isEqualTo("abc");
+    }
 
 }
