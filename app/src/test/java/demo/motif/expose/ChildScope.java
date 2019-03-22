@@ -15,5 +15,10 @@ public interface ChildScope {
 
         @Expose
         abstract Controller controller();
+
+        @Expose
+        static String childChildId() {
+            return "childChildId";
+        }
     }
 }

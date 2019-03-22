@@ -14,7 +14,7 @@ public class GrandchildTest {
         GrandchildScope grandchildScope = child.create();
         GrandchildController grandchildController = grandchildScope.grandchildController();
         String actual = grandchildController.request();
-        Truth.assertThat(actual).isEqualTo("1");
+        Truth.assertThat(actual).isEqualTo("childChildId");
 
     }
 
