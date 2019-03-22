@@ -4,16 +4,14 @@ import motif.Expose;
 import motif.Scope;
 
 @Scope
-public interface ChildScope {
+public interface GrandchildScope {
 
-    Controller controller();
-
-    GrandchildScope create();
+    GrandchildController grandchildController();
 
     @motif.Objects
     abstract class Objects {
 
         @Expose
-        abstract Controller controller();
+        abstract GrandchildController grandchildController();
     }
 }
