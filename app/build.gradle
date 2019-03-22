@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -42,4 +44,8 @@ dependencies {
     testCompile 'com.google.truth:truth:0.43'
     implementation 'com.uber.motif:motif:0.0.14'
     testAnnotationProcessor 'com.uber.motif:motif-compiler:0.0.14'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
