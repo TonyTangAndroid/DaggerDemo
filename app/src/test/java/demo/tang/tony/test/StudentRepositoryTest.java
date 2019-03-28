@@ -28,7 +28,7 @@ public class StudentRepositoryTest {
         NetworkComponent networkComponent = DaggerNetworkComponent.builder()
                 .url(SERVER_URL)
                 .build();
-        return networkComponent.restApi();
+        return networkComponent.studentApi();
     }
 
 }

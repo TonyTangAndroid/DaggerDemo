@@ -23,7 +23,7 @@ public class PersonTest {
 
     @Before
     public void setup() {
-        restApi = DaggerNetworkComponent.builder().url(SERVER_URL).build().restApi();
+        restApi = DaggerNetworkComponent.builder().url(SERVER_URL).build().studentApi();
     }
 
     @Test

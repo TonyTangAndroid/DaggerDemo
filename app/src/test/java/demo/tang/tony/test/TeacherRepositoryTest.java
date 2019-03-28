@@ -15,10 +15,6 @@ import demo.tang.tony.model.Teacher;
 public class TeacherRepositoryTest {
 
 
-    //    http://www.mocky.io/v2/5c9c4a37360000e655d96f5f
-    public static final String SERVER_URL = "http://www.mocky.io/v2/";
-
-
     @Test
     public void get_by_id_should_return_student() throws IOException {
         TeacherRepository studentRepository = new TeacherRepository(restApi());
@@ -28,7 +24,7 @@ public class TeacherRepositoryTest {
 
     private TeacherApi restApi() {
         NetworkComponent networkComponent = DaggerNetworkComponent.builder()
-                .url(SERVER_URL)
+                .url(MockApiConstants.SERVER_URL)
                 .build();
         return networkComponent.teacherApi();
     }

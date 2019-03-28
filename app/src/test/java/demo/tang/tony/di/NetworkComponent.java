@@ -9,7 +9,7 @@ import demo.tang.tony.api.TeacherApi;
         HiddenOkHttpClientModule.class})
 public interface NetworkComponent {
 
-    StudentApi restApi();
+    StudentApi studentApi();
 
     TeacherApi teacherApi();
 
