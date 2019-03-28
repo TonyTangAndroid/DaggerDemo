@@ -14,17 +14,25 @@ import io.reactivex.Single;
 public class GetTeacherAndStudentUseCase {
 
 
-    public Single<Dashboard> get(String teacherId, String studentId) throws IOException {
+    public Single<Dashboard> get(final String teacherId, final String studentId) throws IOException {
 
+        System.out.println("A Pre get");
+        Single<Dashboard> dashboardSingle = Single.fromCallable(() -> getDashboard(teacherId, studentId));
+        System.out.println("B Post get");
+        return dashboardSingle;
+
+    }
+
+    private Dashboard getDashboard(String teacherId, String studentId) throws IOException {
         NetworkComponent networkComponent = DaggerNetworkComponent.builder().url(MockApiConstants.SERVER_URL).build();
 
         StudentRepository studentRepository = new StudentRepository(networkComponent.studentApi());
         TeacherRepository teacherRepository = new TeacherRepository(networkComponent.teacherApi());
         Student student = studentRepository.get(studentId);
         Teacher teacher = teacherRepository.get(teacherId);
-        Dashboard dashboard = Dashboard.builder().teacher(teacher).student(student).build();
-        return Single.just(dashboard);
+        System.out.println("C Dashboard ready");
 
+        return Dashboard.builder().teacher(teacher).student(student).build();
     }
 
 }
