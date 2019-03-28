@@ -12,5 +12,4 @@ class HiddenOkHttpClientModule {
         return new OkHttpClient();
     }
 
-
 }

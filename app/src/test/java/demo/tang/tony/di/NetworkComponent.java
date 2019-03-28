@@ -5,7 +5,8 @@ import dagger.Component;
 import demo.tang.tony.api.RestApi;
 import demo.tang.tony.api.TeacherApi;
 
-@Component(modules = {RetrofitModule.class})
+@Component(modules = {RetrofitModule.class,
+        HiddenOkHttpClientModule.class})
 public interface NetworkComponent {
 
     RestApi restApi();
