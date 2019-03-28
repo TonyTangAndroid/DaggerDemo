@@ -1,4 +1,4 @@
-package demo.tang.tony.com.daggerdemo;
+package demo.tang.tony.model;
 
 import android.support.annotation.Nullable;
 
@@ -7,15 +7,16 @@ import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.SerializedName;
 
-@AutoValue
-public abstract class Student {
 
-    public static TypeAdapter<Student> typeAdapter(Gson gson) {
-        return new AutoValue_Student.GsonTypeAdapter(gson);
+@AutoValue
+public abstract class Teacher {
+
+    public static TypeAdapter<Teacher> typeAdapter(Gson gson) {
+        return new AutoValue_Teacher.GsonTypeAdapter(gson);
     }
 
     public static Builder builder() {
-        return new AutoValue_Student.Builder();
+        return new AutoValue_Teacher.Builder();
     }
 
     @Nullable
@@ -26,6 +27,6 @@ public abstract class Student {
     public abstract static class Builder {
         public abstract Builder name(String name);
 
-        public abstract Student build();
+        public abstract Teacher build();
     }
 }

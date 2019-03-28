@@ -1,5 +1,6 @@
 package demo.tang.tony.com.daggerdemo;
 
+import demo.tang.tony.model.Student;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

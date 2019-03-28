@@ -2,6 +2,7 @@ package demo.tang.tony.com.daggerdemo;
 
 import java.io.IOException;
 
+import demo.tang.tony.model.Student;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
