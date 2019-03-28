@@ -4,6 +4,7 @@ import dagger.BindsInstance;
 import dagger.Component;
 import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.api.TeacherApi;
+import demo.tang.tony.test.GetTeacherAndStudentUseCase;
 
 @Component(modules = {RetrofitModule.class,
         HiddenOkHttpClientModule.class})
