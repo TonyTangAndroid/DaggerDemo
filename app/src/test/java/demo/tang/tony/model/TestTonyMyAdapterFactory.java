@@ -1,4 +1,4 @@
-package demo.tang.tony.com.daggerdemo;
+package demo.tang.tony.model;
 
 import com.google.gson.TypeAdapterFactory;
 import com.ryanharter.auto.value.gson.GsonTypeAdapterFactory;
