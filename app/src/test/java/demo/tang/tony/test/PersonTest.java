@@ -1,4 +1,4 @@
-package demo.tang.tony.com.test;
+package demo.tang.tony.test;
 
 import org.junit.Before;
 import org.junit.Test;
