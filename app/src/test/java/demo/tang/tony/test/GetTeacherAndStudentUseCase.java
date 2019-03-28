@@ -3,6 +3,8 @@ package demo.tang.tony.test;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+
 import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.model.Student;
 import demo.tang.tony.model.Teacher;
@@ -14,6 +16,7 @@ public class GetTeacherAndStudentUseCase {
     private StudentRepository studentRepository;
     private TeacherRepository teacherRepository;
 
+    @Inject
     public GetTeacherAndStudentUseCase(StudentRepository studentRepository, TeacherRepository teacherRepository) {
         this.studentRepository = studentRepository;
         this.teacherRepository = teacherRepository;

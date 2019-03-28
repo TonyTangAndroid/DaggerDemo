@@ -2,6 +2,8 @@ package demo.tang.tony.test;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+
 import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.model.Student;
 import retrofit2.Call;
@@ -11,6 +13,7 @@ import retrofit2.Response;
 public class StudentRepository {
     private final StudentApi restApi;
 
+    @Inject
     public StudentRepository(StudentApi restApi) {
         this.restApi = restApi;
     }
