@@ -1,4 +1,4 @@
-package demo.tang.tony.com.daggerdemo;
+package demo.tang.tony.api;
 
 import demo.tang.tony.model.Student;
 import retrofit2.Call;

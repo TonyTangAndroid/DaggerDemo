@@ -1,10 +1,12 @@
-package demo.tang.tony.com.daggerdemo;
+package demo.tang.tony.com.test;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 
+import demo.tang.tony.com.daggerdemo.DaggerNetworkComponent;
+import demo.tang.tony.api.TeacherApi;
 import demo.tang.tony.model.Teacher;
 import retrofit2.Call;
 import retrofit2.Response;

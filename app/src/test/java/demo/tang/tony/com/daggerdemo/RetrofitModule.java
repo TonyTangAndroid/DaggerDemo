@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 
 import dagger.Module;
 import dagger.Provides;
+import demo.tang.tony.api.RestApi;
+import demo.tang.tony.api.TeacherApi;
 import demo.tang.tony.model.TestTonyMyAdapterFactory;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

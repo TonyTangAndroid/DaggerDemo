@@ -2,6 +2,8 @@ package demo.tang.tony.com.daggerdemo;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import demo.tang.tony.api.RestApi;
+import demo.tang.tony.api.TeacherApi;
 
 @Component(modules = {RetrofitModule.class})
 public interface NetworkComponent {

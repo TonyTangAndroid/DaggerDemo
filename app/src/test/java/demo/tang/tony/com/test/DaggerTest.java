@@ -1,6 +1,8 @@
-package demo.tang.tony.com.daggerdemo;
+package demo.tang.tony.com.test;
 
 import org.junit.Test;
+
+import demo.tang.tony.com.daggerdemo.DaggerNetworkComponent;
 
 
 public class DaggerTest {
