@@ -15,15 +15,17 @@ import io.reactivex.Single;
 public class GetTeacherAndStudentUseCaseTest {
 
     @Test
-    public void get() throws IOException {
+    public void get() {
 
-        NetworkComponent networkComponent = DaggerNetworkComponent.builder().url(MockApiConstants.SERVER_URL).build();
-        StudentRepository studentRepository = new StudentRepository(networkComponent.studentApi());
-        TeacherRepository teacherRepository = new TeacherRepository(networkComponent.teacherApi());
-        GetTeacherAndStudentUseCase useCase = new GetTeacherAndStudentUseCase(studentRepository, teacherRepository);
+        GetTeacherAndStudentUseCase useCase = useCase();
         Single<Dashboard> single = useCase.get(MockApiConstants.TEACHER_ID, MockApiConstants.STUDENT_ID);
         single.test().assertValue(expected());
 
+    }
+
+    private GetTeacherAndStudentUseCase useCase() {
+        NetworkComponent networkComponent = DaggerNetworkComponent.builder().url(MockApiConstants.SERVER_URL).build();
+        return DaggerUseCaseComponent.builder().networkComponent(networkComponent).build().useCase();
     }
 
     private Dashboard expected() {
