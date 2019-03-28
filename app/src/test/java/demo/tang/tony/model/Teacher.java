@@ -19,12 +19,16 @@ public abstract class Teacher {
         return new AutoValue_Teacher.Builder();
     }
 
-    @Nullable
+    @SerializedName("id")
+    public abstract int id();
+
     @SerializedName("name")
     public abstract String name();
 
     @AutoValue.Builder
     public abstract static class Builder {
+        public abstract Builder id(int id);
+
         public abstract Builder name(String name);
 
         public abstract Teacher build();
