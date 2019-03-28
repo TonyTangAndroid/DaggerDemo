@@ -2,7 +2,7 @@ package demo.tang.tony.test;
 
 import org.junit.Test;
 
-import demo.tang.tony.com.daggerdemo.DaggerNetworkComponent;
+import demo.tang.tony.di.DaggerNetworkComponent;
 
 
 public class DaggerTest {

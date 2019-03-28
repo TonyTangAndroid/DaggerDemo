@@ -1,4 +1,4 @@
-package demo.tang.tony.com.daggerdemo;
+package demo.tang.tony.di;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

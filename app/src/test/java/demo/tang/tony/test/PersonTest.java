@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import demo.tang.tony.com.daggerdemo.DaggerNetworkComponent;
 import demo.tang.tony.api.RestApi;
+import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.model.Student;
 import retrofit2.Call;
 import retrofit2.Response;

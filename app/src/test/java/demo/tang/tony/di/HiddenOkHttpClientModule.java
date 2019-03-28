@@ -1,4 +1,4 @@
-package demo.tang.tony.com.daggerdemo;
+package demo.tang.tony.di;
 
 import dagger.Module;
 import dagger.Provides;
