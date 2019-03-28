@@ -9,6 +9,7 @@ import java.io.IOException;
 import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.di.NetworkComponent;
+import demo.tang.tony.model.MockApiConstants;
 import demo.tang.tony.model.Student;
 
 public class StudentRepositoryTest {
@@ -19,7 +20,7 @@ public class StudentRepositoryTest {
     @Test
     public void get_by_id_should_return_student() throws IOException {
         StudentRepository studentRepository = new StudentRepository(restApi());
-        Student actual = studentRepository.get("5c9302e0320000e51c6bd167");
+        Student actual = studentRepository.get(MockApiConstants.STUDENT_ID);
         Truth.assertThat(actual).isEqualTo(Student.builder().name("tony").build());
     }
 
