@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import dagger.Module;
 import dagger.Provides;
+import demo.tang.tony.api.PresidentApi;
 import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.api.TeacherApi;
 import demo.tang.tony.model.TestTonyMyAdapterFactory;
@@ -24,6 +25,11 @@ class RetrofitModule {
     @Provides
     TeacherApi provideTeacherApi(Retrofit retrofit) {
         return retrofit.create(TeacherApi.class);
+    }
+
+    @Provides
+    PresidentApi providePresidentApi(Retrofit retrofit) {
+        return retrofit.create(PresidentApi.class);
     }
 
     @Provides

@@ -2,12 +2,11 @@ package demo.tang.tony.test;
 
 import org.junit.Test;
 
-import java.io.IOException;
-
 import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.di.NetworkComponent;
 import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.model.MockApiConstants;
+import demo.tang.tony.model.President;
 import demo.tang.tony.model.Student;
 import demo.tang.tony.model.Teacher;
 import io.reactivex.Single;
@@ -29,8 +28,9 @@ public class GetTeacherAndStudentUseCaseTest {
     }
 
     private Dashboard expected() {
+        President president = President.builder().name("TonyTang").build();
         Teacher teacher = Teacher.builder().id(1).name("TonyTang").build();
         Student student = Student.builder().name("tony").build();
-        return Dashboard.builder().student(student).teacher(teacher).build();
+        return Dashboard.builder().student(student).president(president).teacher(teacher).build();
     }
 }
