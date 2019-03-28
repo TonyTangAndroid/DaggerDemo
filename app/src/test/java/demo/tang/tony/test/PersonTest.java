@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import demo.tang.tony.api.RestApi;
+import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.model.Student;
 import retrofit2.Call;
@@ -19,7 +19,7 @@ public class PersonTest {
 
     public static final String SERVER_URL = "http://www.mocky.io/v2/";
 
-    private RestApi restApi;
+    private StudentApi restApi;
 
     @Before
     public void setup() {

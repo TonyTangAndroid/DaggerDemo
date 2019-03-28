@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import dagger.Module;
 import dagger.Provides;
-import demo.tang.tony.api.RestApi;
+import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.api.TeacherApi;
 import demo.tang.tony.model.TestTonyMyAdapterFactory;
 import okhttp3.OkHttpClient;
@@ -17,8 +17,8 @@ class RetrofitModule {
 
 
     @Provides
-    RestApi provideRestApi(Retrofit retrofit) {
-        return retrofit.create(RestApi.class);
+    StudentApi provideRestApi(Retrofit retrofit) {
+        return retrofit.create(StudentApi.class);
     }
 
     @Provides

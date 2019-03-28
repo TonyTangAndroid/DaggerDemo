@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import demo.tang.tony.api.RestApi;
+import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.di.NetworkComponent;
 import demo.tang.tony.model.Student;
@@ -23,7 +23,7 @@ public class StudentRepositoryTest {
         Truth.assertThat(actual).isEqualTo(Student.builder().name("tony").build());
     }
 
-    private RestApi restApi() {
+    private StudentApi restApi() {
         NetworkComponent networkComponent = DaggerNetworkComponent.builder()
                 .url(SERVER_URL)
                 .build();

@@ -2,16 +2,16 @@ package demo.tang.tony.test;
 
 import java.io.IOException;
 
-import demo.tang.tony.api.RestApi;
+import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.model.Student;
 import retrofit2.Call;
 import retrofit2.Response;
 
 
 public class StudentRepository {
-    private final RestApi restApi;
+    private final StudentApi restApi;
 
-    public StudentRepository(RestApi restApi) {
+    public StudentRepository(StudentApi restApi) {
         this.restApi = restApi;
     }
 
