@@ -11,5 +11,10 @@ public abstract class TestTonyMyAdapterFactory implements TypeAdapterFactory {
     public static TypeAdapterFactory create() {
         return new AutoValueGson_TestTonyMyAdapterFactory();
     }
-
+    //                      1:N            1:N
+    //activity -> presenter ---> use case -----> repo -> rest api
+//                                            |1:1
+//                                            cache
+//                                             |1:1
+//                                             db
 }

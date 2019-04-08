@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import dagger.Binds;
 import dagger.Module;
-import dagger.android.AndroidInjection;
 import dagger.android.support.DaggerAppCompatActivity;
 import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.model.MockApiConstants;
