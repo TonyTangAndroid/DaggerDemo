@@ -1,5 +1,6 @@
 package demo.tang.tony.test;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,6 +9,8 @@ import java.io.IOException;
 import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.model.Student;
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -16,15 +19,23 @@ import static org.junit.Assert.assertEquals;
 
 public class PersonTest {
 
+    private StudentApi studentApi;
 
-    public static final String SERVER_URL = "http://www.mocky.io/v2/";
+    private MockWebServer mockWebServer;
 
-    private StudentApi restApi;
 
     @Before
-    public void setup() {
-        restApi = DaggerNetworkComponent.builder().url(SERVER_URL).build().studentApi();
+    public void setup() throws IOException {
+        mockWebServer = new MockWebServer();
+        mockWebServer.start();
+        studentApi = DaggerNetworkComponent.builder().url(mockWebServer.url("/").toString()).build().studentApi();
     }
+
+    @After
+    public void tearDown() throws IOException {
+        mockWebServer.shutdown();
+    }
+
 
     @Test
     public void addition_isCorrect() throws IOException {
@@ -33,7 +44,12 @@ public class PersonTest {
 
     private Student actual2() throws IOException {
 
-        Call<Student> personCall = restApi.get("5c9302e0320000e51c6bd167");
+        String json = TestUtils.json("student.json", this);
+        MockResponse mockResponse = new MockResponse().setResponseCode(200).setBody(json);
+        mockWebServer.enqueue(mockResponse);
+
+
+        Call<Student> personCall = studentApi.get("5c9302e0320000e51c6bd167");
         Response<Student> response = personCall.execute();
         return response.body();
     }
