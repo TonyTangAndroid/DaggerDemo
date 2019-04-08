@@ -14,7 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
-class RetrofitModule {
+public class RetrofitModule {
 
 
     @Provides

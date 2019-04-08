@@ -5,7 +5,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-abstract class ThreadModule {
+public abstract class ThreadModule {
 
     @Binds
     abstract ThreadExecutor threadExecutor(JobExecutor jobExecutor);

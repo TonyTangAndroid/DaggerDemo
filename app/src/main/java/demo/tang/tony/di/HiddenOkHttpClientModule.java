@@ -5,7 +5,7 @@ import dagger.Provides;
 import okhttp3.OkHttpClient;
 
 @Module
-class HiddenOkHttpClientModule {
+public class HiddenOkHttpClientModule {
 
     @Provides
     OkHttpClient okHttpClient() {

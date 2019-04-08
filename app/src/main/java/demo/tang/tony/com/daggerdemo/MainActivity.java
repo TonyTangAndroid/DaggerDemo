@@ -5,24 +5,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import demo.tang.tony.di.DaggerNetworkComponent;
-import demo.tang.tony.di.NetworkComponent;
+import javax.inject.Inject;
+
+import dagger.Component;
+import dagger.Module;
+import dagger.Provides;
 import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.model.MockApiConstants;
 import demo.tang.tony.presenter.DashBoardPresenter;
 import demo.tang.tony.presenter.DashBoardView;
-import demo.tang.tony.usecase.DaggerUseCaseComponent;
-import demo.tang.tony.usecase.GetTeacherAndStudentUseCase;
 
 public class MainActivity extends AppCompatActivity implements DashBoardView {
+
+    @Inject
+    DashBoardPresenter dashBoardPresenter;
 
     private TextView tv_dashboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        inject();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tv_dashboard = findViewById(R.id.tv_dashboard);
+    }
+
+    private void inject() {
+        DaggerMainActivity_MainActivityComponent.builder()
+                .appComponent(((App) getApplication()).appComponent())
+                .module(new MainActivityModule(this))
+                .build().inject(this);
+
     }
 
 
@@ -38,14 +51,39 @@ public class MainActivity extends AppCompatActivity implements DashBoardView {
     }
 
     public void load(View view) {
-        DashBoardPresenter dashBoardPresenter = new DashBoardPresenter(this, useCase());
         dashBoardPresenter.load(MockApiConstants.STUDENT_ID, MockApiConstants.TEACHER_ID);
-
     }
 
-    private GetTeacherAndStudentUseCase useCase() {
-        NetworkComponent networkComponent = DaggerNetworkComponent.builder().url(MockApiConstants.SERVER_URL).build();
-        return DaggerUseCaseComponent.builder().networkComponent(networkComponent).build().useCase();
+    @Component(modules = {MainActivityModule.class}
+            , dependencies = AppComponent.class)
+    public interface MainActivityComponent {
+
+        void inject(MainActivity mainActivity);
+
+        @Component.Builder
+        interface Builder {
+
+            Builder module(MainActivityModule mainActivityModule);
+
+            Builder appComponent(AppComponent appComponent);
+
+            MainActivityComponent build();
+        }
     }
 
+    @Module
+    static
+    class MainActivityModule {
+
+        private final MainActivity mainActivity;
+
+        public MainActivityModule(MainActivity mainActivity) {
+            this.mainActivity = mainActivity;
+        }
+
+        @Provides
+        DashBoardView dashBoardView() {
+            return mainActivity;
+        }
+    }
 }
