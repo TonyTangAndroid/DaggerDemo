@@ -28,11 +28,7 @@ public class GetTeacherAndStudentUseCase {
     }
 
     public Single<Dashboard> get(final String teacherId, final String studentId) {
-
-        System.out.println("A Pre get");
-        Single<Dashboard> dashboardSingle = Single.fromCallable(() -> getDashboard(teacherId, studentId));
-        System.out.println("B Post get");
-        return dashboardSingle;
+        return Single.fromCallable(() -> getDashboard(teacherId, studentId));
 
     }
 
@@ -40,7 +36,6 @@ public class GetTeacherAndStudentUseCase {
         Student student = studentRepository.get(studentId);
         Teacher teacher = teacherRepository.get(teacherId);
         President president = presidentRepository.get(teacherId);
-        System.out.println("C Dashboard ready");
         return Dashboard.builder().teacher(teacher).president(president).student(student).build();
     }
 
