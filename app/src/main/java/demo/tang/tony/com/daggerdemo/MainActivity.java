@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import dagger.Component;
+import dagger.Binds;
 import dagger.Module;
-import dagger.Provides;
+import dagger.android.AndroidInjection;
 import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.model.MockApiConstants;
 import demo.tang.tony.presenter.DashBoardPresenter;
@@ -24,20 +24,11 @@ public class MainActivity extends AppCompatActivity implements DashBoardView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        inject();
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tv_dashboard = findViewById(R.id.tv_dashboard);
     }
-
-    private void inject() {
-        DaggerMainActivity_MainActivityComponent.builder()
-                .appComponent(((App) getApplication()).appComponent())
-                .module(new MainActivityModule(this))
-                .build().inject(this);
-
-    }
-
 
     @Override
     public void showDashBoard(Dashboard dashboard) {
@@ -54,36 +45,10 @@ public class MainActivity extends AppCompatActivity implements DashBoardView {
         dashBoardPresenter.load(MockApiConstants.STUDENT_ID, MockApiConstants.TEACHER_ID);
     }
 
-    @Component(modules = {MainActivityModule.class}
-            , dependencies = AppComponent.class)
-    public interface MainActivityComponent {
-
-        void inject(MainActivity mainActivity);
-
-        @Component.Builder
-        interface Builder {
-
-            Builder module(MainActivityModule mainActivityModule);
-
-            Builder appComponent(AppComponent appComponent);
-
-            MainActivityComponent build();
-        }
-    }
-
     @Module
-    static
-    class MainActivityModule {
+    public abstract class MainActivityModule {
 
-        private final MainActivity mainActivity;
-
-        public MainActivityModule(MainActivity mainActivity) {
-            this.mainActivity = mainActivity;
-        }
-
-        @Provides
-        DashBoardView dashBoardView() {
-            return mainActivity;
-        }
+        @Binds
+        abstract DashBoardView dashBoardView(MainActivity mainActivity);
     }
 }

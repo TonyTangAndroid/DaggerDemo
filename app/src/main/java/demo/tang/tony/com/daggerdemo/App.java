@@ -1,20 +1,32 @@
 package demo.tang.tony.com.daggerdemo;
 
+import android.app.Activity;
 import android.app.Application;
 
-import demo.tang.tony.model.MockApiConstants;
+import javax.inject.Inject;
 
-public class App extends Application {
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
 
-    private AppComponent appComponent;
+import static demo.tang.tony.model.MockApiConstants.SERVER_URL;
 
-    public AppComponent appComponent() {
-        return appComponent;
-    }
+public class App extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> activityAndroidInjector;
 
     @Override
     public void onCreate() {
+        inject();
         super.onCreate();
-        appComponent = DaggerAppComponent.builder().serverUrl(MockApiConstants.SERVER_URL).build();
+    }
+
+    private void inject() {
+        DaggerAppComponent.builder().serverUrl(SERVER_URL).build().inject(this);
+    }
+
+    @Override
+    public DispatchingAndroidInjector<Activity> activityInjector() {
+        return activityAndroidInjector;
     }
 }
