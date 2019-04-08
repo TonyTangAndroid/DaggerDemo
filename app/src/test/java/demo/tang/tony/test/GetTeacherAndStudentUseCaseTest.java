@@ -1,5 +1,6 @@
 package demo.tang.tony.test;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import demo.tang.tony.di.DaggerNetworkComponent;
@@ -13,6 +14,7 @@ import io.reactivex.Single;
 
 public class GetTeacherAndStudentUseCaseTest {
 
+    @Ignore
     @Test
     public void get() {
 

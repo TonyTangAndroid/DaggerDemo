@@ -2,7 +2,6 @@ package demo.tang.tony.model;
 
 import com.google.auto.value.AutoValue;
 
-import javax.annotation.Nullable;
 
 
 @AutoValue
@@ -16,7 +15,6 @@ public abstract class Dashboard {
 
     public abstract Teacher teacher();
 
-    @Nullable
     public abstract President president();
 
     @AutoValue.Builder
