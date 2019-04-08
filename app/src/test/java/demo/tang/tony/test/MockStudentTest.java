@@ -18,10 +18,8 @@ import retrofit2.Call;
 
 public class MockStudentTest {
 
-    private MockWebServer mockWebServer;
-
-
     private StudentApi studentApi;
+    private MockWebServer mockWebServer;
 
     @Before
     public void setup() throws IOException {

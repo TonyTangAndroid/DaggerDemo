@@ -1,5 +1,8 @@
 package demo.tang.tony.test;
 
+import com.google.common.truth.Truth;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,31 +11,42 @@ import java.io.IOException;
 import demo.tang.tony.api.TeacherApi;
 import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.model.Teacher;
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static org.junit.Assert.assertEquals;
 
 
 public class TeacherTest {
 
-
-    public static final String SERVER_URL = "http://www.mocky.io/v2/";
-
     private TeacherApi teacherApi;
 
+    private MockWebServer mockWebServer;
+
     @Before
-    public void setup() {
-        teacherApi = DaggerNetworkComponent.builder().url(SERVER_URL).build().teacherApi();
+    public void setup() throws IOException {
+        mockWebServer = new MockWebServer();
+        mockWebServer.start();
+        teacherApi = DaggerNetworkComponent.builder().url(mockWebServer.url("/").toString()).build().teacherApi();
     }
+
+    @After
+    public void tearDown() throws IOException {
+        mockWebServer.shutdown();
+    }
+
 
     @Test
     public void addition_isCorrect() throws IOException {
-        assertEquals(expected(), actual2());
+
+        String json = TestUtils.json("teacher.json", this);
+        MockResponse mockResponse = new MockResponse().setResponseCode(200).setBody(json);
+        mockWebServer.enqueue(mockResponse);
+        Truth.assertThat(actual2()).isEqualTo(expected());
     }
 
-    private Teacher actual2() throws IOException {
 
+    private Teacher actual2() throws IOException {
         Call<Teacher> personCall = teacherApi.get("5c9c4a37360000e655d96f5f");
         Response<Teacher> response = personCall.execute();
         return response.body();
@@ -40,6 +54,6 @@ public class TeacherTest {
 
 
     private Teacher expected() {
-        return Teacher.builder().name("TonyTang").id(1).build();
+        return Teacher.builder().name("TonyTang").id(2).build();
     }
 }
