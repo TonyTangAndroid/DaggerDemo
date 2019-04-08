@@ -15,7 +15,7 @@ public class DashBoardPresenter {
     }
 
     public void load(String studentId, String teacherId) {
-        Dashboard dashboard = useCase.get(studentId, teacherId).blockingGet();
+        Dashboard dashboard = useCase.setParams(studentId, teacherId).build().blockingGet();
         dashBoardView.showDashBoard(dashboard);
     }
 

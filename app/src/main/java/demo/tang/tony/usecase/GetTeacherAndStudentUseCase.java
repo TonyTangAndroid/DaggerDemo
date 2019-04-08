@@ -14,24 +14,31 @@ import demo.tang.tony.repo.StudentRepository;
 import demo.tang.tony.repo.TeacherRepository;
 import io.reactivex.Single;
 
-public class GetTeacherAndStudentUseCase {
+public class GetTeacherAndStudentUseCase extends SingleUseCase<Dashboard> {
 
 
     private StudentRepository studentRepository;
     private TeacherRepository teacherRepository;
     private PresidentRepository presidentRepository;
+    private String teacherId;
+    private String studentId;
 
     @Inject
-    public GetTeacherAndStudentUseCase(StudentRepository studentRepository,
+    public GetTeacherAndStudentUseCase(ThreadExecutor threadExecutor,
+                                       UIThread uiThread,
+                                       StudentRepository studentRepository,
                                        TeacherRepository teacherRepository,
                                        PresidentRepository presidentRepository) {
+        super(threadExecutor, uiThread);
         this.studentRepository = studentRepository;
         this.teacherRepository = teacherRepository;
         this.presidentRepository = presidentRepository;
     }
 
-    public Single<Dashboard> get(final String teacherId, final String studentId) {
-        return Single.fromCallable(() -> getDashboard(teacherId, studentId));
+    public GetTeacherAndStudentUseCase setParams(final String teacherId, final String studentId) {
+        this.teacherId = teacherId;
+        this.studentId = studentId;
+        return this;
 
     }
 
@@ -42,4 +49,8 @@ public class GetTeacherAndStudentUseCase {
         return Dashboard.builder().teacher(teacher).president(president).student(student).build();
     }
 
+    @Override
+    public Single<Dashboard> build() {
+        return Single.fromCallable(() -> getDashboard(teacherId, studentId));
+    }
 }
