@@ -2,6 +2,7 @@ package demo.tang.tony.presenter;
 
 import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.usecase.GetTeacherAndStudentUseCase;
+import io.reactivex.observers.DisposableSingleObserver;
 
 public class DashBoardPresenter {
 
@@ -15,11 +16,17 @@ public class DashBoardPresenter {
     }
 
     public void load(String studentId, String teacherId) {
-        Dashboard dashboard = useCase.setParams(studentId, teacherId).build().blockingGet();
-        dashBoardView.showDashBoard(dashboard);
+        useCase.setParams(studentId, teacherId).execute(new DisposableSingleObserver<Dashboard>() {
+            @Override
+            public void onSuccess(Dashboard dashboard) {
+                dashBoardView.showDashBoard(dashboard);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                dashBoardView.showError(e);
+            }
+        });
     }
 
-    public void loadNull() {
-        dashBoardView.showDashBoard(null);
-    }
 }
