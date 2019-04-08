@@ -14,7 +14,6 @@ import demo.tang.tony.model.Teacher;
 import demo.tang.tony.repo.PresidentRepository;
 import demo.tang.tony.repo.StudentRepository;
 import demo.tang.tony.repo.TeacherRepository;
-import demo.tang.tony.usecase.GetTeacherAndStudentUseCase;
 import io.reactivex.Single;
 
 import static org.mockito.BDDMockito.given;
@@ -28,6 +27,10 @@ public class GetTeacherAndStudentUseCaseNoDaggerTest {
     private TeacherRepository teacherRepository;
     @Mock
     private PresidentRepository presidentRepository;
+    @Mock
+    private ThreadExecutor threadExecutor;
+    @Mock
+    private UIThread uiThread;
 
 
     @Test
@@ -36,6 +39,8 @@ public class GetTeacherAndStudentUseCaseNoDaggerTest {
         MockitoAnnotations.initMocks(this);
 
         GetTeacherAndStudentUseCase useCase = new GetTeacherAndStudentUseCase(
+                threadExecutor,
+                uiThread,
                 studentRepository,
                 teacherRepository,
                 presidentRepository);
@@ -46,7 +51,7 @@ public class GetTeacherAndStudentUseCaseNoDaggerTest {
         given(presidentRepository.get(MockApiConstants.TEACHER_ID)).willReturn(President.builder().name("TonyTang").build());
 
 
-        Single<Dashboard> single = useCase.get(MockApiConstants.TEACHER_ID, MockApiConstants.STUDENT_ID);
+        Single<Dashboard> single = useCase.setParams(MockApiConstants.TEACHER_ID, MockApiConstants.STUDENT_ID).build();
         single.test().assertValue(expected());
 
     }

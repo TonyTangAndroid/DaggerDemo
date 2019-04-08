@@ -19,7 +19,7 @@ public class GetTeacherAndStudentUseCaseTest {
     public void get() {
 
         GetTeacherAndStudentUseCase useCase = useCase();
-        Single<Dashboard> single = useCase.get(MockApiConstants.TEACHER_ID, MockApiConstants.STUDENT_ID);
+        Single<Dashboard> single = useCase.setParams(MockApiConstants.TEACHER_ID, MockApiConstants.STUDENT_ID).build();
         single.test().assertValue(expected());
 
     }
