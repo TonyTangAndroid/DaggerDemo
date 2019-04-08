@@ -1,4 +1,4 @@
-package demo.tang.tony.test;
+package demo.tang.tony.repo;
 
 import com.google.common.truth.Truth;
 
@@ -8,18 +8,19 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import demo.tang.tony.api.StudentApi;
+import demo.tang.tony.api.TeacherApi;
 import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.di.NetworkComponent;
 import demo.tang.tony.model.MockApiConstants;
-import demo.tang.tony.model.Student;
+import demo.tang.tony.model.Teacher;
+import demo.tang.tony.repo.TeacherRepository;
+import demo.tang.tony.test.TestUtils;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 
-public class StudentRepositoryTest {
+public class TeacherRepositoryTest {
 
-
-    private StudentApi studentApi;
+    private TeacherApi teacherApi;
 
     private MockWebServer mockWebServer;
 
@@ -28,7 +29,7 @@ public class StudentRepositoryTest {
     public void setup() throws IOException {
         mockWebServer = new MockWebServer();
         mockWebServer.start();
-        studentApi = DaggerNetworkComponent.builder().url(mockWebServer.url("/").toString()).build().studentApi();
+        teacherApi = DaggerNetworkComponent.builder().url(mockWebServer.url("/").toString()).build().teacherApi();
     }
 
     @After
@@ -39,23 +40,22 @@ public class StudentRepositoryTest {
 
     @Test
     public void get_by_id_should_return_student() throws IOException {
-        String json = TestUtils.json("student.json", this);
+        String json = TestUtils.json("teacher.json", this);
         MockResponse mockResponse = new MockResponse().setResponseCode(200).setBody(json);
         mockWebServer.enqueue(mockResponse);
 
 
 
-
-        StudentRepository studentRepository = new StudentRepository(restApi());
-        Student actual = studentRepository.get(MockApiConstants.STUDENT_ID);
-        Truth.assertThat(actual).isEqualTo(Student.builder().name("tony").build());
+        TeacherRepository studentRepository = new TeacherRepository(restApi());
+        Teacher actual = studentRepository.get(MockApiConstants.TEACHER_ID);
+        Truth.assertThat(actual).isEqualTo(Teacher.builder().id(2).name("TonyTang").build());
     }
 
-    private StudentApi restApi() {
+    private TeacherApi restApi() {
         NetworkComponent networkComponent = DaggerNetworkComponent.builder()
                 .url(mockWebServer.url("/").toString())
                 .build();
-        return networkComponent.studentApi();
+        return networkComponent.teacherApi();
     }
 
 }

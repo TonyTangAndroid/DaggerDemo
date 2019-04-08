@@ -1,4 +1,4 @@
-package demo.tang.tony.test;
+package demo.tang.tony.usecase;
 
 
 import java.io.IOException;
@@ -9,6 +9,9 @@ import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.model.President;
 import demo.tang.tony.model.Student;
 import demo.tang.tony.model.Teacher;
+import demo.tang.tony.repo.PresidentRepository;
+import demo.tang.tony.repo.StudentRepository;
+import demo.tang.tony.repo.TeacherRepository;
 import io.reactivex.Single;
 
 public class GetTeacherAndStudentUseCase {

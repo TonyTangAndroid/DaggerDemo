@@ -1,4 +1,4 @@
-package demo.tang.tony.test;
+package demo.tang.tony.usecase;
 
 import org.junit.Test;
 import org.mockito.Mock;
@@ -11,6 +11,10 @@ import demo.tang.tony.model.MockApiConstants;
 import demo.tang.tony.model.President;
 import demo.tang.tony.model.Student;
 import demo.tang.tony.model.Teacher;
+import demo.tang.tony.repo.PresidentRepository;
+import demo.tang.tony.repo.StudentRepository;
+import demo.tang.tony.repo.TeacherRepository;
+import demo.tang.tony.usecase.GetTeacherAndStudentUseCase;
 import io.reactivex.Single;
 
 import static org.mockito.BDDMockito.given;

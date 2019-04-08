@@ -1,4 +1,4 @@
-package demo.tang.tony.test;
+package demo.tang.tony.usecase;
 
 import org.junit.Ignore;
 import org.junit.Test;

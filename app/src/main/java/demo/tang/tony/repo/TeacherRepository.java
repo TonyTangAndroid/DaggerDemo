@@ -1,4 +1,4 @@
-package demo.tang.tony.test;
+package demo.tang.tony.repo;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package demo.tang.tony.test;
+package demo.tang.tony.usecase;
 
 import dagger.Component;
 import demo.tang.tony.di.NetworkComponent;
