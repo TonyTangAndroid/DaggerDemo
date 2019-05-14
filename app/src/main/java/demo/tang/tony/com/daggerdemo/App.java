@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
-
+//Singleton
 import static demo.tang.tony.model.MockApiConstants.SERVER_URL;
 
 public class App extends Application implements HasActivityInjector {

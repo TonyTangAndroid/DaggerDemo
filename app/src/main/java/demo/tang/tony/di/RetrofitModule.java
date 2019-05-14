@@ -29,11 +29,15 @@ public class RetrofitModule {
 
     @Provides
     PresidentApi providePresidentApi(Retrofit retrofit) {
+        System.out.println("PresidentApi created");
+
         return retrofit.create(PresidentApi.class);
     }
 
     @Provides
     Retrofit provideRetrofit(OkHttpClient okHttpClient, String serverUrl, GsonConverterFactory factory) {
+        System.out.println("Retrofit created");
+
         return new Retrofit.Builder()
                 .client(okHttpClient)
                 .addConverterFactory(factory)
@@ -43,6 +47,7 @@ public class RetrofitModule {
 
     @Provides
     Gson gson() {
+        System.out.println("Gson created");
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapterFactory(TestTonyMyAdapterFactory.create());
         return gsonBuilder.create();
