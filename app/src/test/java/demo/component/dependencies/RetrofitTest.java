@@ -35,7 +35,7 @@ public class RetrofitTest {
         //helper函数
         void inject(InjectDemoTest injectDemoTest);
 
-        void inject(InjectDemo2Test injectDemoTest);
+        void inject(RestApiManager injectDemoTest);
 
 //        //output
 //        Retrofit retrofit();
