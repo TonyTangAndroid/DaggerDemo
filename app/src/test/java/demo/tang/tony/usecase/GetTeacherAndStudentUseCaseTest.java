@@ -10,6 +10,7 @@ import demo.tang.tony.model.MockApiConstants;
 import demo.tang.tony.model.President;
 import demo.tang.tony.model.Student;
 import demo.tang.tony.model.Teacher;
+import demo.tang.tony.usecase.di.DaggerUseCaseComponent;
 import io.reactivex.Single;
 
 public class GetTeacherAndStudentUseCaseTest {
