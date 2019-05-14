@@ -1,7 +1,5 @@
 package demo.component.dependencies;
 
-import com.google.common.truth.Truth;
-
 import org.junit.Test;
 
 import dagger.Provides;
@@ -24,7 +22,7 @@ public class RetrofitTest {
         RetrofitComponent component = DaggerRetrofitTest_RetrofitComponent.builder().okhttpComponent(okhttpComponent).build();
 
 
-        Truth.assertThat(component.retrofit()).isNotNull();
+//        Truth.assertThat(component.retrofit()).isNotNull();
 
 
     }
@@ -39,12 +37,11 @@ public class RetrofitTest {
 
         void inject(InjectDemo2Test injectDemoTest);
 
-        //output
-        Retrofit retrofit();
+//        //output
+//        Retrofit retrofit();
+//
+//        String serverUrl();
 
-        String serverUrl();
-
-        //1 - > N
     }
 
     @dagger.Module

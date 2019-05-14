@@ -17,25 +17,11 @@ public class InjectDemoTest {
 
 
     @Test
-    public void test1() {
-        //手动
-
-        RetrofitTest.RetrofitComponent component = retrofitCompoent();
-        retrofit = component.retrofit();
-        serverUrl = component.serverUrl();
-        Truth.assertThat(retrofit).isNotNull();
-        Truth.assertThat(serverUrl).isEqualTo("123");
-    }
-
-
-    @Test
     public void test2() {
 
         //自动的
         RetrofitTest.RetrofitComponent component = retrofitCompoent();
         component.inject(this);
-//        retrofit = component.retrofit();
-//        serverUrl = component.serverUrl();
         Truth.assertThat(retrofit).isNotNull();
         Truth.assertThat(serverUrl).isEqualTo("123");
     }

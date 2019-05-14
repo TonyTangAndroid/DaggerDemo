@@ -1,13 +1,8 @@
 package demo.component.dependencies;
 
-import com.google.common.truth.Truth;
-
 import org.junit.Test;
 
 import okhttp3.OkHttpClient;
-
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mock;
 
 public class OKHttpTest {
     @Test
