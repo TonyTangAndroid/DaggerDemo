@@ -5,7 +5,6 @@ import org.junit.Test;
 import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.usecase.GetTeacherAndStudentUseCase;
 import io.reactivex.Single;
-import io.reactivex.observers.DisposableSingleObserver;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;

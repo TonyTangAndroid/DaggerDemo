@@ -13,7 +13,6 @@ import demo.tang.tony.di.DaggerNetworkComponent;
 import demo.tang.tony.di.NetworkComponent;
 import demo.tang.tony.model.MockApiConstants;
 import demo.tang.tony.model.Student;
-import demo.tang.tony.repo.StudentRepository;
 import demo.tang.tony.test.TestUtils;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
