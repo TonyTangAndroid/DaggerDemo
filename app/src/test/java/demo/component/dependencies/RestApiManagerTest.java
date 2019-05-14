@@ -1,5 +1,6 @@
 package demo.component.dependencies;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import retrofit2.Retrofit;
@@ -10,6 +11,7 @@ import static org.mockito.Mockito.verify;
 
 public class RestApiManagerTest {
 
+    @Ignore
     @Test
     public void createRestApi() {
 
