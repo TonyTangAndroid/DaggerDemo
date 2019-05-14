@@ -9,7 +9,7 @@ import okhttp3.OkHttpClient;
 @Module
 public class HiddenOkHttpClientModule {
 
-//    @Singleton
+    @Singleton
     @Provides
     OkHttpClient okHttpClient() {
         System.out.println("okHttpClient created");
