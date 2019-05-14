@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.io.IOException;
 
 import demo.tang.tony.api.TeacherApi;
-import demo.tang.tony.di.DaggerNetworkComponent;
+import demo.tang.tony.di.network.DaggerNetworkComponent;
 import demo.tang.tony.model.Teacher;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;

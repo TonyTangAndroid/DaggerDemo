@@ -9,8 +9,8 @@ import org.junit.Test;
 import java.io.IOException;
 
 import demo.tang.tony.api.TeacherApi;
-import demo.tang.tony.di.DaggerNetworkComponent;
-import demo.tang.tony.di.NetworkComponent;
+import demo.tang.tony.di.network.DaggerNetworkComponent;
+import demo.tang.tony.di.network.NetworkComponent;
 import demo.tang.tony.model.MockApiConstants;
 import demo.tang.tony.model.Teacher;
 import demo.tang.tony.test.TestUtils;
@@ -42,7 +42,6 @@ public class TeacherRepositoryTest {
         String json = TestUtils.json("teacher.json", this);
         MockResponse mockResponse = new MockResponse().setResponseCode(200).setBody(json);
         mockWebServer.enqueue(mockResponse);
-
 
 
         TeacherRepository studentRepository = new TeacherRepository(restApi());

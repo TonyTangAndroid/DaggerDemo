@@ -3,8 +3,8 @@ package demo.tang.tony.usecase;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import demo.tang.tony.di.DaggerNetworkComponent;
-import demo.tang.tony.di.NetworkComponent;
+import demo.tang.tony.di.network.DaggerNetworkComponent;
+import demo.tang.tony.di.network.NetworkComponent;
 import demo.tang.tony.model.Dashboard;
 import demo.tang.tony.model.MockApiConstants;
 import demo.tang.tony.model.President;
