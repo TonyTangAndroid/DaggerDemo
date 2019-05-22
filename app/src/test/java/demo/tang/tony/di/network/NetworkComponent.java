@@ -5,11 +5,9 @@ import dagger.Component;
 import demo.tang.tony.api.PresidentApi;
 import demo.tang.tony.api.StudentApi;
 import demo.tang.tony.api.TeacherApi;
-import demo.tang.tony.di.HiddenOkHttpClientModule;
-import demo.tang.tony.di.RetrofitModule;
 
-@Component(modules = {RetrofitModule.class,
-        HiddenOkHttpClientModule.class})
+@Component(modules = {RetrofitTestModule.class,
+        HiddenOkHttpClientTestModule.class})
 public interface NetworkComponent {
 
     StudentApi studentApi();
