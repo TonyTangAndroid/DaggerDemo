@@ -4,6 +4,8 @@ import com.google.common.truth.Truth;
 
 import org.junit.Test;
 
+import demo.component.shared.Country;
+
 public class RootComponentTest {
 
 

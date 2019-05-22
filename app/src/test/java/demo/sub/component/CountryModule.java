@@ -1,6 +1,8 @@
 package demo.sub.component;
 
 import dagger.Provides;
+import demo.component.shared.Country;
+import demo.component.shared.CountryScope;
 
 @dagger.Module
 class CountryModule {

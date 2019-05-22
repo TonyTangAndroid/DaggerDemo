@@ -1,9 +1,10 @@
-package demo.sub.component;
+package demo.component.shared;
 
 import com.google.auto.value.AutoValue;
 
+
 @AutoValue
-abstract class Country {
+public abstract class Country {
 
     public static Builder builder() {
         return new AutoValue_Country.Builder();

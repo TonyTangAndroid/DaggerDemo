@@ -1,5 +1,5 @@
 
-package demo.sub.component;
+package demo.component.shared;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -11,10 +11,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * Identifies a type that the injector only instantiates once. Not inherited.
  *
- * @see javax.inject.Scope @Scope
+ * @see Scope @Scope
  */
 @Scope
 @Documented
 @Retention(RUNTIME)
-public @interface CountryScope {
+public @interface ProvinceScope {
 }
