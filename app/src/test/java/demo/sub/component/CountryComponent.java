@@ -7,4 +7,7 @@ package demo.sub.component;
 public interface CountryComponent {
 
     Country country();
+
+    ProvinceComponent.Builder provinceComponentBuilder();
+
 }

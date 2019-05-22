@@ -7,8 +7,13 @@ class ProvinceModule {
 
     @ProvinceScope
     @Provides
-    public Province province() {
-        throw new RuntimeException("todo");
+    public Province province(Country country) {
+
+        return Province.builder()
+                .country(country)
+                .provinceId("010")
+                .provinceName("Beijing")
+                .build();
     }
 
 }

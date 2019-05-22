@@ -11,19 +11,9 @@ public class ProvinceComponentTest {
     public void test_country() {
         CountryComponent countryComponent = DaggerCountryComponent.builder().build();
 
-
-        {
-
-            Country country = countryComponent.country();
-            Truth.assertThat(country.countryId()).isEqualTo(1);
-            Truth.assertThat(country.countryName()).isEqualTo("China");
-        }
-        {
-
-            Truth.assertThat(DaggerProvinceComponent.builder().build().province())
-                    .isNotNull();
-
-        }
-
+        ProvinceComponent provinceComponent = countryComponent.provinceComponentBuilder().build();
+        Province province = provinceComponent.province();
+        Truth.assertThat(province.provinceName()).isEqualTo("Beijing");
+        Truth.assertThat(province.provinceId()).isEqualTo("010");
     }
 }

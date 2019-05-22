@@ -1,8 +1,14 @@
 package demo.sub.component;
 
-@dagger.Component(modules = ProvinceModule.class)
+
+@dagger.Subcomponent(modules = ProvinceModule.class)
 @ProvinceScope
 public interface ProvinceComponent {
 
     Province province();
+
+    @dagger.Subcomponent.Builder
+    interface Builder {
+        ProvinceComponent build();
+    }
 }
