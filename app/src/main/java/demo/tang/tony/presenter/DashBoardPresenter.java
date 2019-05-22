@@ -33,4 +33,7 @@ public class DashBoardPresenter {
         });
     }
 
+    public void dispose() {
+        useCase.unsubscribe();
+    }
 }

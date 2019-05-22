@@ -22,7 +22,8 @@ public abstract class SingleUseCase<T> {
     protected abstract Single<T> build();
 
     public <S extends SingleObserver<T> & Disposable> void execute(S useCaseDisposable) {
-        this.disposable = this.build()
+        Single<T> single = this.build();
+        this.disposable = single
                 .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(uiThread.getScheduler())
                 .subscribeWith(useCaseDisposable);

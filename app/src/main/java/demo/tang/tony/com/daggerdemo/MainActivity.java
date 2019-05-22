@@ -1,7 +1,6 @@
 package demo.tang.tony.com.daggerdemo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -42,6 +41,12 @@ public class MainActivity extends DaggerAppCompatActivity implements DashBoardVi
 
     public void load(View view) {
         dashBoardPresenter.load(MockApiConstants.STUDENT_ID, MockApiConstants.TEACHER_ID);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dashBoardPresenter.dispose();
     }
 
     @Module
