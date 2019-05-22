@@ -2,6 +2,7 @@ package demo.sub.component;
 
 
 import demo.component.shared.Province;
+import demo.component.shared.ProvinceModule;
 import demo.component.shared.ProvinceScope;
 
 @dagger.Subcomponent(modules = ProvinceModule.class)

@@ -1,6 +1,7 @@
 package demo.dependencies.component;
 
 import demo.component.shared.Country;
+import demo.component.shared.CountryModule;
 import demo.component.shared.CountryScope;
 
 @dagger.Component(
