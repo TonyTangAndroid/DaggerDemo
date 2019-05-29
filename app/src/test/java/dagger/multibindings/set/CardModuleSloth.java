@@ -1,4 +1,4 @@
-package dagger.multibindings;
+package dagger.multibindings.set;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -6,6 +6,7 @@ import java.util.Set;
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.multibindings.ElementsIntoSet;
 
 @Module
 class CardModuleSloth {

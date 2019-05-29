@@ -1,4 +1,4 @@
-package dagger.multibindings;
+package dagger.multibindings.set;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -7,6 +7,7 @@ import java.util.Set;
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.multibindings.IntoSet;
 
 @Module
 class CardModuleTony {

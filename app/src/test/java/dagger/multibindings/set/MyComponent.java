@@ -1,4 +1,4 @@
-package dagger.multibindings;
+package dagger.multibindings.set;
 
 import com.google.common.collect.ImmutableSet;
 

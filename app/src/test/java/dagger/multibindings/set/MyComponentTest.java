@@ -1,4 +1,4 @@
-package dagger.multibindings;
+package dagger.multibindings.set;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.truth.Truth;
@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
+
 
 public class MyComponentTest {
 
